@@ -1,11 +1,11 @@
 package com.sport.academy.repositories;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.sport.academy.model.GameEntity;
+import com.sport.academy.base.repository.BaseRepository;
+import com.sport.academy.entity.GameEntity;
 
 @Repository
-public interface gameRepository extends JpaRepository<GameEntity, Integer> {
+public interface gameRepository extends BaseRepository<GameEntity, Integer> {
 
 }

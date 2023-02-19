@@ -1,5 +1,7 @@
 package com.sport.academy.dto;
 
+import com.sport.academy.base.dto.BaseDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,9 +9,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class GameDTO {
-	private int gameId;
+public class GameDTO extends BaseDTO<Long>{
+//	private long gameId;
 	private String gameName;
-	private boolean gameStatus;
+//	private boolean gameStatus;
 	private int brancheId;
 }

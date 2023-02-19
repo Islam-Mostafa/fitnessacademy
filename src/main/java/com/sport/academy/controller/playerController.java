@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sport.academy.dto.PlayerDTO;
-import com.sport.academy.model.PlayerEntity;
-import com.sport.academy.services.playerService;
+import com.sport.academy.entity.PlayerEntity;
+import com.sport.academy.services.PlayerService;
 
 @RestController
 @RequestMapping("/api/v1")
-public class playerController {
+public class PlayerController {
 	@Autowired
-	playerService playerservice;
+	PlayerService playerservice;
 
 	@GetMapping("/players")
 	public List<PlayerEntity> getplayers() {
@@ -34,12 +34,12 @@ public class playerController {
 
 	@PostMapping("/player")
 	public long addPlayer(@RequestBody PlayerDTO player) {
-		return playerservice.addPlayer(player).getPlayerId();
+		return playerservice.addPlayer(player).getId();
 	}
 
 	@PutMapping("/player")
 	public long updatePlayer(@RequestBody PlayerDTO player) {
-		return playerservice.updatePlayer(player).getPlayerId();
+		return playerservice.updatePlayer(player).getId();
 	}
 
 	@DeleteMapping("/player")

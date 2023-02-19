@@ -1,9 +1,8 @@
-package com.sport.academy.model;
+package com.sport.academy.entity;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+
+import com.sport.academy.base.entity.BaseEntity;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.CascadeType;
@@ -13,22 +12,19 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import com.sport.academy.model.CoachEntity;
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "Players")
-public class PlayerEntity {
+public class PlayerEntity extends BaseEntity<Long> {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long playerId;

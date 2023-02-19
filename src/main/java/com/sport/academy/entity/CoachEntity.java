@@ -1,14 +1,12 @@
-package com.sport.academy.model;
+package com.sport.academy.entity;
 
 import java.util.Date;
+
+import com.sport.academy.base.entity.BaseEntity;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,11 +19,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "Coaches")
-public class CoachEntity {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "CoachId")
-	private int coachId;
+public class CoachEntity extends BaseEntity<Long> {
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@Column(name = "CoachId")
+//	private long coachId;
 	@Nonnull
 	@Column(name = "FirstName")
 	private String firstName;
@@ -44,9 +42,7 @@ public class CoachEntity {
 	@Nonnull
 	@Column(name = "BranchId")
 	private int branchId;
-	@Nonnull
-	@Column(name = "CoachStatus")
-	private boolean coachStatus;
+	
 	@Nonnull
 	@Column(name = "Phone")
 	private String phone;

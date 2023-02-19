@@ -1,4 +1,6 @@
-package com.sport.academy.model;
+package com.sport.academy.entity;
+
+import com.sport.academy.base.entity.BaseEntity;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.Column;
@@ -11,22 +13,25 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
 @Setter
+@Getter
 @AllArgsConstructor
 @Entity
-@Table(name = "Games")
-public class GameEntity {
+@Table(name="Branches")
+public class BranchEntity extends BaseEntity<Long>{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int gameId;
+	private long branchID;
+	@Column(name="BranchName")
+	@Nonnull()
+	private String branchName;
+	@Column(name="Address")
 	@Nonnull
-	@Column(name = "GameName")
-	private String gameName;
+	private String address;
+	@Column(name = "BranchStatus")
 	@Nonnull
-	@Column(name = "GameStatus")
-	private boolean gameStatus;
-	@Nonnull
-	@Column(name = "BrancheId")
-	private int brancheId;
+	private boolean branchStaus;
+	@Column(name = "Phone")
+	private String phone;
+	
 }

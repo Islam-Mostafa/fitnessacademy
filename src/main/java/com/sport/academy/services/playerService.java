@@ -5,13 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sport.academy.base.service.BaseService;
 import com.sport.academy.dto.PlayerDTO;
+import com.sport.academy.entity.PlayerEntity;
 import com.sport.academy.mapper.PlayerMapper;
-import com.sport.academy.model.PlayerEntity;
 import com.sport.academy.repositories.playerRepository;
 
 @Service
-public class playerService {
+public class PlayerService extends BaseService<PlayerEntity, Long>{
 	@Autowired
 	playerRepository playerrepository;
 	@Autowired
@@ -22,17 +23,17 @@ public class playerService {
 	}
 
 	public PlayerDTO getPlayerById(long playerId) {
-		return playerMapper.mapPlayerEnitityToPlayerDTO( playerrepository.findById(playerId).get());
+		return playerMapper.mapEntityToDTO( playerrepository.findById(playerId).get());
 	}
 
 	public PlayerDTO addPlayer(PlayerDTO player) {
 
-		return playerMapper.mapPlayerEnitityToPlayerDTO( playerrepository.save(playerMapper.mapPlayerDTOToPlayerEntity(player)));
+		return playerMapper.mapEntityToDTO( playerrepository.save(playerMapper.unMapDTOToEntity(player)));
 	}
 
 	public PlayerDTO updatePlayer(PlayerDTO player) {
 		
-		return playerMapper.mapPlayerEnitityToPlayerDTO( playerrepository.save(playerMapper.mapPlayerDTOToPlayerEntity(player)));
+		return playerMapper.mapEntityToDTO( playerrepository.save(playerMapper.unMapDTOToEntity(player)));
 	}
 	public void deletePlayer(long playerId) {
 
