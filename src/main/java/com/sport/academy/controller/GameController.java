@@ -2,6 +2,7 @@ package com.sport.academy.controller;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,11 +19,10 @@ import com.sport.academy.services.GameService;
 
 @RestController
 @RequestMapping("/api/v1")
+@RequiredArgsConstructor
 public class GameController {
-@Autowired
-GameService gameService;
-@Autowired
-GameMapper gameMapper;
+private final GameService gameService;
+private final GameMapper gameMapper;
 
 @GetMapping("/games")
 public List<GameDTO> getAllGames() {

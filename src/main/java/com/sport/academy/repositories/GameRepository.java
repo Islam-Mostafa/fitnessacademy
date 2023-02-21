@@ -6,6 +6,6 @@ import com.sport.academy.base.repository.BaseRepository;
 import com.sport.academy.entity.GameEntity;
 
 @Repository
-public interface gameRepository extends BaseRepository<GameEntity, Integer> {
+public interface GameRepository extends BaseRepository<GameEntity, Integer> {
 
 }

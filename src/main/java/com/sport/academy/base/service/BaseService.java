@@ -10,10 +10,10 @@ import com.sport.academy.base.repository.BaseRepository;
 import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class BaseService<T, ID extends Number> {
+public abstract class BaseService<T, ID extends Number,Repository extends BaseRepository> {
 
 	@Autowired
-	private BaseRepository<T, ID> baseRepository;
+	private Repository baseRepository;
 
 	/**
 	 * 
@@ -28,7 +28,7 @@ public abstract class BaseService<T, ID extends Number> {
 	 * @return
 	 */
 	public T findById(ID id) {
-		return baseRepository.findById(id).orElse(null);
+		return (T) baseRepository.findById(id).orElse(null);
 	}
 
 	/**
@@ -37,7 +37,7 @@ public abstract class BaseService<T, ID extends Number> {
 	 * @return
 	 */
 	public T getOne(ID id) {
-		return baseRepository.getById(id);
+		return (T) baseRepository.getById(id);
 	}
 
 	/**
@@ -54,7 +54,7 @@ public abstract class BaseService<T, ID extends Number> {
 	 * @return
 	 */
 	public T insert(T entity) {
-		return baseRepository.save(entity);
+		return (T) baseRepository.save(entity);
 
 	}
 
@@ -63,7 +63,7 @@ public abstract class BaseService<T, ID extends Number> {
 	 * @return
 	 */
 	public T persist(T entity) {
-		return baseRepository.saveAndFlush(entity);
+		return (T) baseRepository.saveAndFlush(entity);
 
 	}
 
@@ -71,7 +71,7 @@ public abstract class BaseService<T, ID extends Number> {
 	 *
 	 */
 	public T update(T entity) {
-		return baseRepository.save(entity);
+		return (T) baseRepository.save(entity);
 	}
 
 	/**

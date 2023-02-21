@@ -2,6 +2,7 @@ package com.sport.academy.controller;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,34 +20,35 @@ import com.sport.academy.services.BranchService;
 
 @RestController
 @RequestMapping("/api/v1")
+@RequiredArgsConstructor
 public class BranchController {
-@Autowired
-BranchService branchService;
-@Autowired
-BranchMapper branchMapper;
+
+private final BranchService branchService;
+
+private final BranchMapper branchMapper;
 
 @GetMapping("/branches")
 public List<BranchEntity> getAllBranches() {
 	return branchService.findAll();
 }
 
-@GetMapping("/branche")
-public BranchDTO getBrancheById(@RequestParam long branchId) {
+@GetMapping("/branch")
+public BranchDTO getBranchById(@RequestParam long branchId) {
 	return branchMapper.mapEntityToDTO( branchService.findById(branchId));
 }
 
-@PostMapping("/branche")
-public long addBranche(@RequestBody BranchDTO branch) {
+@PostMapping("/branch")
+public long addBranch(@RequestBody BranchDTO branch) {
 	return branchService.insert(branchMapper.unMapDTOToEntity(branch)).getId();
 }
 
-@PutMapping("/branche")
-public long updateBranche(@RequestBody BranchDTO branch) {
+@PutMapping("/branch")
+public long updateBranch(@RequestBody BranchDTO branch) {
 	return branchService.update(branchMapper.unMapDTOToEntity(branch)).getId();
 }
 
-@DeleteMapping("/branche")
-public void deleteBrancheById(@RequestParam long coachId) {
+@DeleteMapping("/branch")
+public void deleteBranchById(@RequestParam long coachId) {
 	branchService.deleteById(coachId);
 
 }
