@@ -23,33 +23,33 @@ import com.sport.academy.services.BranchService;
 @RequiredArgsConstructor
 public class BranchController {
 
-private final BranchService branchService;
+    private final BranchService branchService;
 
-private final BranchMapper branchMapper;
+    private final BranchMapper branchMapper;
 
-@GetMapping("/branches")
-public List<BranchEntity> getAllBranches() {
-	return branchService.findAll();
-}
+    @GetMapping("/branches")
+    public List<BranchDTO> getAllBranches() {
+        return branchMapper.mapEntityToDTO(branchService.findAll());
+    }
 
-@GetMapping("/branch")
-public BranchDTO getBranchById(@RequestParam long branchId) {
-	return branchMapper.mapEntityToDTO( branchService.findById(branchId));
-}
+    @GetMapping("/branch")
+    public BranchDTO getBranchById(@RequestParam long branchId) {
+        return branchMapper.mapEntityToDTO(branchService.findById(branchId));
+    }
 
-@PostMapping("/branch")
-public long addBranch(@RequestBody BranchDTO branch) {
-	return branchService.insert(branchMapper.unMapDTOToEntity(branch)).getId();
-}
+    @PostMapping("/branch")
+    public long addBranch(@RequestBody BranchDTO branch) {
+        return branchService.insert(branchMapper.unMapDTOToEntity(branch)).getId();
+    }
 
-@PutMapping("/branch")
-public long updateBranch(@RequestBody BranchDTO branch) {
-	return branchService.update(branchMapper.unMapDTOToEntity(branch)).getId();
-}
+    @PutMapping("/branch")
+    public long updateBranch(@RequestBody BranchDTO branch) {
+        return branchService.update(branchMapper.unMapDTOToEntity(branch)).getId();
+    }
 
-@DeleteMapping("/branch")
-public void deleteBranchById(@RequestParam long coachId) {
-	branchService.deleteById(coachId);
+    @DeleteMapping("/branch")
+    public void deleteBranchById(@RequestParam long coachId) {
+        branchService.deleteById(coachId);
 
-}
+    }
 }

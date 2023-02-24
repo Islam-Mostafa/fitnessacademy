@@ -1,7 +1,6 @@
 package com.sport.academy.controller;
 
 import com.sport.academy.dto.CoachDTO;
-import com.sport.academy.entity.CoachEntity;
 import com.sport.academy.mapper.CoachMaper;
 import com.sport.academy.services.CoachService;
 import java.util.List;
@@ -23,8 +22,8 @@ public class CoachController {
     private final CoachMaper coachMaper;
 
     @GetMapping("/coaches")
-    public List<CoachEntity> getAllCoaches() {
-        return coachService.findAll();
+    public List<CoachDTO> getAllCoaches() {
+        return coachMaper.mapEntityToDTO(coachService.findAll());
     }
 
     @GetMapping("/coach")

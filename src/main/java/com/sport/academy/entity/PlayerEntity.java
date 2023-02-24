@@ -71,6 +71,10 @@ public class PlayerEntity extends BaseEntity<Long> {
         inverseJoinColumns = @JoinColumn(name = "game_id"))
     Set<GameEntity> playersGames;
 
+    @Nonnull
+    @ManyToOne
+    @JoinColumn(name = "academy_Id")
+    AcademyEntity academy;
 
 
 }

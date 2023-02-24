@@ -7,7 +7,9 @@ import com.sport.academy.base.mapper.BaseMapper;
 import com.sport.academy.dto.PlayerDTO;
 import com.sport.academy.entity.PlayerEntity;
 
-@Mapper(componentModel = "spring",collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED)
+@Mapper(componentModel = "spring",
+    collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED,
+    uses = {CoachMaper.class, BranchMapper.class, GameMapper.class, AcademyMapper.class})
 
 public interface PlayerMapper extends BaseMapper<PlayerEntity, PlayerDTO> {
 

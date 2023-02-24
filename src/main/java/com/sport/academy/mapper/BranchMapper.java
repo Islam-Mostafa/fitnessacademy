@@ -6,7 +6,9 @@ import com.sport.academy.entity.BranchEntity;
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring",collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED)
+@Mapper(componentModel = "spring",
+    collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED,
+    uses = {AcademyMapper.class})
 
 public interface BranchMapper extends BaseMapper<BranchEntity, BranchDTO> {
 

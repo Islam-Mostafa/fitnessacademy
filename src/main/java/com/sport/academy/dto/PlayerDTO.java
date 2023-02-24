@@ -1,9 +1,12 @@
 package com.sport.academy.dto;
 
+import com.sport.academy.entity.CoachEntity;
+import com.sport.academy.entity.GameEntity;
 import java.util.Date;
 
 import com.sport.academy.base.dto.BaseDTO;
 
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,16 +17,15 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PlayerDTO extends BaseDTO<Long>{
-//	private long playerId;
 	private String firstName;
 	private String lastName;
 	private String address;
 	private Date birthDate;
-	private long coachId;
-	private long groupId;
-	private long branchId;
-	private long gameId;
-//	private boolean playerStatus;
 	private String phone;
+	private Set<CoachDTO> playersCoach;
+	private long groupId;
+	private BranchDTO playerBranch;
+	private Set<GameDTO> playersGames;
+	private AcademyDTO academy;
 
 }

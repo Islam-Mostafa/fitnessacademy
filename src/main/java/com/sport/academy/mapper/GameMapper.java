@@ -6,7 +6,8 @@ import com.sport.academy.entity.GameEntity;
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring",collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED)
+@Mapper(componentModel = "spring",
+    collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED)
 
 public interface GameMapper extends BaseMapper<GameEntity, GameDTO> {
 
